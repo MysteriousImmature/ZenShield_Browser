@@ -11,7 +11,7 @@ A simple web browser built with Python and PyQt5 that uses DuckDuckGo as the def
 
 ## Screenshots
 
-![Basic Browser Screenshot](screenshot.png) 
+![Basic Browser Screenshot](Screenshot.png) 
 
 ## Installation
 

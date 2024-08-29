@@ -3,72 +3,68 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebEngineWidgets import *
 
-class Browser(QMainWindow):
+
+class MainWindow(QMainWindow):
     def __init__(self):
-        super().__init__()
-
+        super(MainWindow, self).__init__()
         self.browser = QWebEngineView()
-        self.browser.setUrl(QUrl("http://www.google.com"))
-
+        self.browser.setUrl(QUrl('https://duckduckgo.com'))  # Default to DuckDuckGo
         self.setCentralWidget(self.browser)
+        self.showMaximized()
 
-        # Create navigation bar
+        # Navbar
         navbar = QToolBar()
         self.addToolBar(navbar)
 
-        # Back Button
-        back_btn = QAction("Back", self)
-        back_btn.setStatusTip("Back to previous page")
+        back_btn = QAction('Back', self)
         back_btn.triggered.connect(self.browser.back)
         navbar.addAction(back_btn)
 
-        # Forward Button
-        forward_btn = QAction("Forward", self)
-        forward_btn.setStatusTip("Forward to next page")
+        forward_btn = QAction('Forward', self)
         forward_btn.triggered.connect(self.browser.forward)
         navbar.addAction(forward_btn)
 
-        # Reload Button
-        reload_btn = QAction("Reload", self)
-        reload_btn.setStatusTip("Reload page")
+        reload_btn = QAction('Reload', self)
         reload_btn.triggered.connect(self.browser.reload)
         navbar.addAction(reload_btn)
 
-        # Home Button
-        home_btn = QAction("Home", self)
-        home_btn.setStatusTip("Go home")
+        home_btn = QAction('Home', self)
         home_btn.triggered.connect(self.navigate_home)
         navbar.addAction(home_btn)
 
-        # URL Bar
+        stop_btn = QAction('Stop', self)
+        stop_btn.triggered.connect(self.browser.stop)
+        navbar.addAction(stop_btn)
+
         self.url_bar = QLineEdit()
         self.url_bar.returnPressed.connect(self.navigate_to_url)
         navbar.addWidget(self.url_bar)
 
-        # Updating URL bar
-        self.browser.urlChanged.connect(self.update_urlbar)
+        self.progress = QProgressBar()
+        self.progress.setMaximum(100)
+        navbar.addWidget(self.progress)
 
-        # Set initial size
-        self.setFixedSize(1024, 768)
+        self.browser.loadProgress.connect(self.update_progress)
+        self.browser.urlChanged.connect(self.update_url)
 
     def navigate_home(self):
-        self.browser.setUrl(QUrl("http://www.google.com"))
+        self.browser.setUrl(QUrl('https://duckduckgo.com'))  # Home button navigates to DuckDuckGo
 
     def navigate_to_url(self):
-        q = QUrl(self.url_bar.text())
-        if q.scheme() == "":
-            q.setScheme("http")
+        url = self.url_bar.text()
+        if not url.startswith('http'):
+            # If the text does not start with 'http', treat it as a search query
+            url = 'https://duckduckgo.com/?q=' + url.replace(' ', '+')
+        self.browser.setUrl(QUrl(url))
 
-        self.browser.setUrl(q)
-
-    def update_urlbar(self, q):
+    def update_url(self, q):
         self.url_bar.setText(q.toString())
-        self.url_bar.setCursorPosition(0)
+
+    def update_progress(self, progress):
+        self.progress.setValue(progress)
+
 
 app = QApplication(sys.argv)
-QApplication.setApplicationName("PyQt5 Browser")
-
-window = Browser()
-window.show()
-
+QApplication.setApplicationName('Basic Browser')
+window = MainWindow()
 app.exec_()

@@ -44,3 +44,6 @@ python browser.py
 - Stop Button: Stop loading the current page.
 - Home Button: Navigate to the default homepage (DuckDuckGo).
 - URL/Search Bar: Enter a URL to navigate to, or enter a search query to search with DuckDuckGo.
+
+### Contribution
+We welcome contributions !

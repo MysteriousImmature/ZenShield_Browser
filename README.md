@@ -46,4 +46,4 @@ python browser.py
 - URL/Search Bar: Enter a URL to navigate to, or enter a search query to search with DuckDuckGo.
 
 ### Contribution
-We welcome contributions !
+We welcome contributions to this project !

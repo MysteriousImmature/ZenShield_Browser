@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebEngineWidgets import *
 
@@ -16,34 +17,47 @@ class MainWindow(QMainWindow):
         navbar = QToolBar()
         self.addToolBar(navbar)
 
-        back_btn = QAction('Back', self)
+        # Back button
+        back_btn = QAction(QIcon('icons/back.png'), 'Back', self)  # Use an icon for the back button
+        back_btn.setToolTip('Go back to the previous page')
         back_btn.triggered.connect(self.browser.back)
         navbar.addAction(back_btn)
 
-        forward_btn = QAction('Forward', self)
+        # Forward button
+        forward_btn = QAction(QIcon('icons/forward.png'), 'Forward', self)  # Use an icon for the forward button
+        forward_btn.setToolTip('Go forward to the next page')
         forward_btn.triggered.connect(self.browser.forward)
         navbar.addAction(forward_btn)
 
-        reload_btn = QAction('Reload', self)
+        # Reload button
+        reload_btn = QAction(QIcon('icons/reload.png'), 'Reload', self)  # Use an icon for the reload button
+        reload_btn.setToolTip('Reload the current page')
         reload_btn.triggered.connect(self.browser.reload)
         navbar.addAction(reload_btn)
 
-        home_btn = QAction('Home', self)
+        # Home button
+        home_btn = QAction(QIcon('icons/home.png'), 'Home', self)  # Use an icon for the home button
+        home_btn.setToolTip('Go to the homepage')
         home_btn.triggered.connect(self.navigate_home)
         navbar.addAction(home_btn)
 
-        stop_btn = QAction('Stop', self)
+        # Stop button
+        stop_btn = QAction(QIcon('icons/stop.png'), 'Stop', self)  # Use an icon for the stop button
+        stop_btn.setToolTip('Stop loading the page')
         stop_btn.triggered.connect(self.browser.stop)
         navbar.addAction(stop_btn)
 
+        # URL bar
         self.url_bar = QLineEdit()
         self.url_bar.returnPressed.connect(self.navigate_to_url)
         navbar.addWidget(self.url_bar)
 
+        # Progress bar
         self.progress = QProgressBar()
         self.progress.setMaximum(100)
         navbar.addWidget(self.progress)
 
+        # Connect signals for progress and URL updates
         self.browser.loadProgress.connect(self.update_progress)
         self.browser.urlChanged.connect(self.update_url)
 

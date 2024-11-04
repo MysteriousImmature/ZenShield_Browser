@@ -8,6 +8,7 @@ A simple web browser built with Python and PyQt5 that uses DuckDuckGo as the def
 - **Basic Navigation**: Back, Forward, Reload, Stop, and Home buttons
 - **Search Bar**: Enter URLs or search queries directly
 - **Progress Bar**: Displays loading progress
+- **Tab**: Tab Functionality
 
 ## Screenshots
 
@@ -44,6 +45,7 @@ python browser.py
 - Stop Button: Stop loading the current page.
 - Home Button: Navigate to the default homepage (DuckDuckGo).
 - URL/Search Bar: Enter a URL to navigate to, or enter a search query to search with DuckDuckGo.
+- Tabs: Tab for multi-tasking.
 
 ### Contribution
 We welcome contributions to this project !

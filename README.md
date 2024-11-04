@@ -32,7 +32,7 @@ pip install PyQt5 PyQtWebEngine
 Clone the repository and run the browser:
 
 ```bash
-git clone https://github.com/yourusername/my-cool-browser.git
+git clone https://github.com/MysteriousImmature/basic-browser.git
 cd Basic-Browser
 python browser.py
 ```

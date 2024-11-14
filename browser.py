@@ -126,6 +126,6 @@ class MainWindow(QMainWindow):
 
 
 app = QApplication(sys.argv)
-QApplication.setApplicationName('Tabbed Browser')
+QApplication.setApplicationName('Browser')
 window = MainWindow()
 app.exec_()

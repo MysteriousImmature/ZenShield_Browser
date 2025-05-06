@@ -11,6 +11,7 @@
 
 ![Basic Browser Screenshot](screenshots/Screenshot-1.png) 
 ![Basic Browser Screenshot](screenshots/Screenshot-2.png) 
+![Basic Browser Screenshot](screenshots/Screenshot-3.png) 
 
 ## ✨ Features
 

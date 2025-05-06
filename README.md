@@ -1,4 +1,4 @@
-
+# Browser
 - **browser.py**  
   Main application. Loads SVG toolbar icons from `icons/`, implements tabs, URL bar, progress bar, light Fusion theme, and History dialog.  
 - **icons/**  

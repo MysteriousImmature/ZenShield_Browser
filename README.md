@@ -36,8 +36,8 @@
 
 1. **Clone the repo**  
 ```bash
-git clone https://github.com/yourusername/my_browser_project.git
-cd my_browser_project
+git clone https://github.com/MysteriousImmature/ZenShield_Browser.git
+cd ZenShield_Browser
   ```
 
 2. Create & activate a virtual environment (optional but recommended)

@@ -35,10 +35,10 @@
 ## 🛠 Installation
 
 1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/yourusername/my_browser_project.git
-   cd my_browser_project
-   ```
+```bash
+git clone https://github.com/yourusername/my_browser_project.git
+cd my_browser_project
+  ```
 
 2. Create & activate a virtual environment (optional but recommended)
 ```
